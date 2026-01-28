@@ -7,7 +7,7 @@ ADD . /go-wanchain
 RUN cd /go-wanchain && make gwan
 
 # Pull Geth into a second stage deploy alpine container
-FROM alpine:latest
+FROM alpine:3.23.3
 
 RUN apk add --no-cache ca-certificates
 COPY --from=builder /go-wanchain/build/bin/gwan /usr/local/bin/
